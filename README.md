@@ -18,4 +18,5 @@ Demonstrate the creation of a restful products API (for a simulated retail compa
 ## Design
 
 **General:**
+
 Looking through the requirements, it can be interpreted that three separate services exist to manage information if we are to follow microservice architecture: products (requirement 2), product_detail (Requirement 3), and product_pricing (Requirement 4). The products service is the only service to communicate with client apps, while the other two services are to be considered "backend" or "company use" only. Also, an assumption will be made that suggests that all three services sit under the same domain and that Cross-Origin Resource Sharing (CORS) is not an issue between the three services. Based on requirement 6 and the initial objective, an API gateway will be used to simplify routing to the products API and to handle possible future scaling/throttling.
