@@ -1,7 +1,8 @@
 # myRetail-REST-demo
 Demo app showcasing REST microservice architecture
 
-Objective: Demonstrate the creation of a restful products API (for a simulated retail company) which will aggregate product data from multiple sources and return it as JSON to the caller. The goal is to create a RESTful service that can retrieve product and price details by ID. 
+Objective: 
+Demonstrate the creation of a restful products API (for a simulated retail company) which will aggregate product data from multiple sources and return it as JSON to the caller. The goal is to create a RESTful service that can retrieve product and price details by ID. 
 
 Requirements:
 1. Create a logical URL structure for HTTP calls.
