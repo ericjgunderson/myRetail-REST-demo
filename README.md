@@ -73,3 +73,12 @@ Example controller:
             
         }
     }
+
+**Code Design:**
+
+Two independent web APIs were created for this assignment: Product and ProductPricing. 
+
+The Product Web API consists of 3 model classes: a generic HTTP caller for GET/POST/PUT/etc. functions, a generic JSON parse class to handle the irregular/unknow JSON formats from the incoming ProductDetail API, and a Products class for storage of items that will be JSON output. There is one controller object in the Product Web API that has one asynchronus function called GetProduct (URI routing api/Products/{id}); this is where many of the code calls happen.
+
+The ProductPricing Web API consists of two model classes (LiteDB & Price) and one controller(ProductPriceController). LiteDB was the NOSQL storage solution choice (NuGet Install-Package LiteDB) for the productpricing portion of this assignment. The functions contained within the LiteDB model can fill a nosql file (.db) based on the Price class: see function FillDB and the subsequent call in the startup file of the ProductPricing API. the ProductPriceController has one function that performs a GET to retrieve product price alon the URI path api/ProductPrice/{itemID}/{storeID}.
+
