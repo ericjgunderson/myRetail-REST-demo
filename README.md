@@ -82,3 +82,38 @@ The Product Web API consists of 3 model classes: a generic HTTP caller for GET/P
 
 The ProductPricing Web API consists of two model classes (LiteDB & Price) and one controller(ProductPriceController). LiteDB was the NOSQL storage solution choice (NuGet Install-Package LiteDB) for the productpricing portion of this assignment. The functions contained within the LiteDB model can fill a nosql file (.db) based on the Price class: see function FillDB and the subsequent call in the startup file of the ProductPricing API. the ProductPriceController has one function that performs a GET to retrieve product price alon the URI path api/ProductPrice/{itemID}/{storeID}.
 
+## Set-Up
+
+1. Download and open the zipped version from main or the file version from master. 
+2. Click the solution file (.sln) and open in Visual Studio.
+3. Right click the solution in Solution Explorer and go to properties.
+4. Select Startup Project on the left under Common Properties.
+5. Select the Multiple startup projects button and make sure the action dropdown under Product and ProductPricing is set to 'Start'
+6. Hit Apply and then OK in the bottom right corner.
+7. Open the Startup.cs file and edit in a line(s) for DB creation (example:lDB.FillDB("test", 1, 2, 7.77);) in the Configure function
+8. Click the 'Start' button in Visual Studio to launch both Web APIs: Product and ProductPricing.
+9. Notice also that a Swagger web page launches which will allow input for controller calls and execution using CURL* (see below).
+
+## Testing
+
+**Ad-Hoc:**
+
+Ad-Hoc testing was performed using Swagger CURL (https://curl.se/) commands and a client tool called Postman (https://www.postman.com/downloads/).
+
+**Unit Testing:**
+
+Unit Testing projects were created and started under each of the individual web APIs: ProductPricingTests & ProductTests
+
+## Future Changes
+
+**Security:**
+
+As discussed in the initial requirments an API gateway or proxy could be used to intercept communication and route commands to various servers and/or multiple instances of the APIs. Authentication is another form of security that could be addressed in the future. Even if certain APIs are business facing, safeguards in place to prevent overuse or unauthorized use even from internal clients should exist.
+
+**Hosting:**
+
+The Web APIs have the ability to be hosted in multiple environments: Localized servers running IIS webhosting software, Azure cloud instanced versions of the app can be pushed directly from the IDE, or even linux based hosting is available.
+
+**Code Cleanup:**
+
+Being that this was a sample app to showcase Microservices/REST, some direct hardcoded values were used in an effort to showcase end results.
